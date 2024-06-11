@@ -19,9 +19,9 @@ void setup() {
 
   CircuitPlayground.begin();
   Serial.begin(9600);
-  attachInterrupt(digitalPinToInterrupt(leftButton), check, RISING);
+  attachInterrupt(digitalPinToInterrupt(leftButton), check, RISING);              // set interrupt isr and pins
   attachInterrupt(digitalPinToInterrupt(slideSwtich), slide, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(rightButton), check2, RISING);
+  attachInterrupt(digitalPinToInterrupt(rightButton), check2, RISING);            
 }
 
 void loop() {
@@ -66,7 +66,7 @@ void loop() {
               
             } else if (ss == false) {                 // if hard mode is not on, it will indicate you missing and resume
               Serial.println("NICE TRY");
-              CircuitPlayground.speaker.say(spTOO);
+              CircuitPlayground.speaker.say(spTOO);          // speech demos used from CPX board Speech_demos
               CircuitPlayground.speaker.say(spSLOW);
               for (int j = 0; j > 6; j++) {
                 CircuitPlayground.setPixelColor(2, 0xFFFFFF);
